@@ -60,7 +60,7 @@ include 'includes/header.php';
               <div class="card-body p-md-5 mx-md-4 h-100">
 
               <div class="text-center">
-                <img src="dist/img/aclc_complete_logo.png" alt="logo" class="img-fluid w-75">
+                <!-- <img src="dist/img/aclc_complete_logo.png" alt="logo" class="img-fluid w-75"> -->
               </div>
 
                 <form action="code.php" method="POST">
