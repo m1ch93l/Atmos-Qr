@@ -8,18 +8,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["csvFile"])) {
 
     // Check if file is a valid CSV
     if ($file["type"] == "text/csv" || $file["type"] == "application/vnd.ms-excel") {
-        $handle = fopen($file["tmp_name"], "r");
-        $successCount = 0;
-        $errorCount = 0;
+        $handle           = fopen($file["tmp_name"], "r");
+        $successCount     = 0;
+        $errorCount       = 0;
         $duplicationCount = 0;
-        $headerSkipped = false; // Variable to track if the header row has been skipped
+        $headerSkipped    = false; // Variable to track if the header row has been skipped
 
         // Prepare statement outside the loop for better performance
         $stmt = $conn->prepare("INSERT INTO CollegeStudents (IdentificationNumber, FirstName, LastName, Email, CourseID, LevelID) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssii", $identificationNumber, $firstName, $lastName, $email, $courseId, $levelId);
+        $stmt->bind_param("sssiii", $identificationNumber, $firstName, $lastName, $email, $courseId, $levelId);
 
         // Fetch valid courses from the Courses table
-        $courseQuery = "SELECT ID, course_name FROM courses";
+        $courseQuery  = "SELECT ID, course_name FROM courses";
         $courseResult = $conn->query($courseQuery);
         $validCourses = array();
         while ($row = $courseResult->fetch_assoc()) {
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["csvFile"])) {
         }
 
         // Fetch valid levels from the Levels table
-        $levelQuery = "SELECT ID, level_name FROM levels";
+        $levelQuery  = "SELECT ID, level_name FROM levels";
         $levelResult = $conn->query($levelQuery);
         $validLevels = array();
         while ($row = $levelResult->fetch_assoc()) {
@@ -49,16 +49,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["csvFile"])) {
 
             // Process CSV data and add student to database
             $identificationNumber = isset($data[0]) ? trim($data[0]) : '';
-            $firstName = isset($data[1]) ? trim($data[1]) : '';
-            $lastName = isset($data[2]) ? trim($data[2]) : '';
-            $email = isset($data[3]) ? trim($data[3]) : '';
-            $courseName = isset($data[4]) ? trim($data[4]) : '';
-            $levelName = isset($data[5]) ? trim($data[5]) : '';
+            $firstName            = isset($data[1]) ? trim($data[1]) : '';
+            $lastName             = isset($data[2]) ? trim($data[2]) : '';
+            $email                = isset($data[3]) ? trim($data[3]) : '';
+            $courseName           = isset($data[4]) ? trim($data[4]) : '';
+            $levelName            = isset($data[5]) ? trim($data[5]) : '';
 
             // Check if any required field is empty
-            if (empty($identificationNumber) || empty($firstName) || empty($lastName) || empty($email) || empty($courseName) || empty($levelName)) {
+            if (empty($identificationNumber) || empty($firstName) || empty($lastName) || empty($courseName) || empty($levelName)) {
                 $errorCount++;
                 continue; // Skip this row if any required field is empty
+            }
+
+            // Set default email address if it is not provided
+            if (empty($email)) {
+                $email = "$identificationNumber@student.example.com";
             }
 
             // Check if the course and level are valid
@@ -69,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["csvFile"])) {
 
             // Get CourseID and LevelID
             $courseId = array_search($courseName, $validCourses);
-            $levelId = array_search($levelName, $validLevels);
+            $levelId  = array_search($levelName, $validLevels);
 
             // Check if the student already exists in the database
             $existingStmt = $conn->prepare("SELECT COUNT(*) FROM CollegeStudents WHERE IdentificationNumber = ? OR Email = ?");
@@ -96,9 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["csvFile"])) {
             }
         }
 
-        fclose($handle);
-        $stmt->close(); // Close prepared statement
-        $conn->close(); // Close database connection
+
 
         if ($successCount > 0) {
             $response = array("status" => "success", "message" => "$successCount students imported successfully");
