@@ -204,8 +204,8 @@ if ($result) {
           { "data": "FirstName" },
           { "data": "LastName" },
           { "data": "Email" },
-          { "data": "course_name" },
-          { "data": "level_name" },
+          { "data": "CourseID" },
+          { "data": "LevelID" },
           {
             "data": null,
             "render": function (data, type, row) {
@@ -841,7 +841,7 @@ if ($result) {
           </button>
         </div>
         <div class="modal-body">
-          <form id="importCsvForm" enctype="multipart/form-data">
+          <form id="importCsvForm" enctype="multipart/form-data" accept-charset="UTF-8">
             <div class="form-group">
               <label for="csvFile">Choose CSV File</label>
               <input type="file" class="form-control-file" id="csvFile" name="csvFile" accept=".csv" required>
