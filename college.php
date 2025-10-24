@@ -204,8 +204,8 @@ if ($result) {
           { "data": "FirstName" },
           { "data": "LastName" },
           { "data": "Email" },
-          { "data": "CourseID" },
-          { "data": "LevelID" },
+          { "data": "course_name" },
+          { "data": "level_name" },
           {
             "data": null,
             "render": function (data, type, row) {
