@@ -262,12 +262,12 @@ $result = mysqli_query($conn, $query);
                             <!-- /.card-header -->
                             <div class="card-body text-left">
                                 <!-- Display the event details -->
-                                <p>Academic Year: <?php echo $row['academic_year']; ?></p>
-                                <p>Venue: <?php echo $row['event_venue']; ?></p>
-                                <p>Description: <?php echo $row['description']; ?></p>
-                                <p>Date: <?php echo $row['event_date']; ?></p>
-                                <p>Login Time: <?php echo $row['log_in']; ?></p>
-                                <p>Logout Time: <?php echo $row['log_out']; ?></p>
+                                <p class="mt-0 mb-0">Academic Year: <?php echo $row['academic_year']; ?></p>
+                                <p class="mt-0 mb-0">Venue: <?php echo $row['event_venue']; ?></p>
+                                <p class="mt-0 mb-0">Description: <?php echo $row['description']; ?></p>
+                                <p class="mt-0 mb-0">Date: <?php echo $row['event_date']; ?></p>
+                                <p class="mt-0 mb-0">Login Time: <?php echo $row['log_in']; ?></p>
+                                <p class="mt-0 mb-0">Logout Time: <?php echo $row['log_out']; ?></p>
                             </div>
                             <!-- /.card-body -->
                             <!-- QR code scan button -->

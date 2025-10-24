@@ -875,13 +875,13 @@ if ($result) {
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center"
               style="height: 100%;">
               <!-- Logo above the QR Code -->
-              <img src="dist/img/aclc_complete_logo.png" alt="Logo"
-                style="width: 150px; height: auto; margin-bottom: 20px;">
+              <img src="dist/img/bcc.png" alt="Logo"
+                style="width: 90px; height: auto; margin-bottom: 20px;">
               <!-- QR Code Image -->
               <img id="qrCodeImage" alt="QR Code" style="width: 200px; height: auto;">
               <!-- Student Name -->
               <div id="studentName" class="font-weight-bold"
-                style="font-size: 14px; margin-top: 20px; color: black; display: inline-block; max-width: 70%;">Student
+                style="font-size: 14px; margin-top: 10px; color: black; display: inline-block; max-width: 70%;">Student
                 Name</div>
             </div>
           </div>
