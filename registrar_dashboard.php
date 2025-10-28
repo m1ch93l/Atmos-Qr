@@ -241,9 +241,12 @@ $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
                     // Determine the status of the event using the provided function
                     $status = calculateEventStatus($row['event_date'], $row['log_in'], $row['log_out']);
+                    // Pick a random outline color for each card
+                        $cardColors = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'dark'];
+                        $randomColor = $cardColors[array_rand($cardColors)];  
                     ?>
                     <div class="col-md-4 event-card" data-academic-year-id="<?php echo $row['academic_year_id']; ?>">
-                        <div class="card collapsed-card card-outline <?php echo $status == 'Pending' ? 'card-warning' : ($status == 'Ongoing' ? 'card-primary' : 'card-success'); ?>">
+                        <div class="card collapsed-card card-outline card-<?=$randomColor?>">
                             <div class="card-header">
                                 <h3 class="card-title text-truncate" style="max-width: 170px;"><?php echo $row['event_name']; ?></h3>
                                 <div class="card-tools">
