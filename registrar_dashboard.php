@@ -277,7 +277,7 @@ $result = mysqli_query($conn, $query);
                                         <div class="col-12 text-center">
                                         <?php
                                         // Check if the status is 'Done' or 'Pending'
-                                        if ($status === 'Done' || $status === 'Pending') {
+                                        if ($status === '' || $status === '') {
                                             // If status is 'Done' or 'Pending', disable the button
                                             echo '<button class="btn btn-circle btn-lg btn-primary" style="border-radius: 50%; opacity: 0.15;" disabled><i class="fas fa-qrcode"></i></button>';
                                         } else {
