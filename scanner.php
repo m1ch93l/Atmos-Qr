@@ -116,10 +116,9 @@ if (isset($_GET['eventId'])) {
         <div class="col-md-12 p-3 shadow-lg rounded">
 
           <div class="border p-3 shadow-sm rounded">
-            <a href="registrar_dashboard.php" type="button" style="font-size: 15px; margin-bottom: 2px">Return</a>
-            <!-- <marquee class="pb-2" width="100%" direction="left">
+            <marquee class="pb-2" width="100%" direction="left">
             <b class="marquee-text" style="letter-spacing: 5px;">Attendance Monitoring - QR Code</b>
-          </marquee> -->
+          </marquee>
             <h5 class="text-white py-2 text-center"><span class="blink"><small>SHOW QR CODE</small></span></h5>
             <div class="row align-items-center mb-2">
               <div class="col-md-6">
