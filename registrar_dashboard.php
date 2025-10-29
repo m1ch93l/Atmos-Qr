@@ -248,7 +248,7 @@ $result = mysqli_query($conn, $query);
                     <div class="col-md-4 event-card" data-academic-year-id="<?php echo $row['academic_year_id']; ?>">
                         <div class="card collapsed-card card-outline card-<?=$randomColor?>">
                             <div class="card-header">
-                                <h3 class="card-title text-truncate" style="max-width: 170px;"><?php echo $row['event_name']; ?></h3>
+                                <h6 class="card-title text-truncate" style="max-width: 300px; font-size: 10px; display: flex;"><?php echo $row['event_name']; ?></h6>
                                 <div class="card-tools">
                                     <!-- Display the status badge -->
                                     <span class="badge badge-<?php echo $status == 'Pending' ? 'warning' : ($status == 'Ongoing' ? 'primary' : 'success'); ?> ml-2"><?php echo $status; ?></span>
