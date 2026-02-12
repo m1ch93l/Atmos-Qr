@@ -1,28 +1,28 @@
 <?php
-session_start();
-// current timezone
-date_default_timezone_set('Asia/Manila');
+    session_start();
+    // current timezone
+    date_default_timezone_set('Asia/Manila');
 
-include 'database/db.php';
+    include 'database/db.php';
 
-// Check if the user is not logged in or is not a registrar
-if (!isset($_SESSION['username']) || $_SESSION['user_type_id'] != 2) {
-  // Redirect to the login page
-  header('Location: index.php');
-  exit(); // Stop further execution
-}
+    // Check if the user is not logged in or is not a registrar
+    if (! isset($_SESSION['username']) || $_SESSION['user_type_id'] != 2) {
+    // Redirect to the login page
+    header('Location: index.php');
+    exit(); // Stop further execution
+    }
 
-// Check if eventId is set in the URL parameters
-if (isset($_GET['eventId'])) {
-  // Retrieve event details from URL parameters
-  $eventId   = $_GET['eventId'];
-  $eventName = urldecode($_GET['eventName']);
+    // Check if eventId is set in the URL parameters
+    if (isset($_GET['eventId'])) {
+    // Retrieve event details from URL parameters
+    $eventId   = $_GET['eventId'];
+    $eventName = urldecode($_GET['eventName']);
 
-  // Use the event details as needed
-  // echo "Scanning QR Code for Event: $eventName (ID: $eventId)";
-} else {
-  echo "Event ID is not set!";
-}
+    // Use the event details as needed
+    // echo "Scanning QR Code for Event: $eventName (ID: $eventId)";
+    } else {
+    echo "Event ID is not set!";
+    }
 
 ?>
 
@@ -114,8 +114,10 @@ if (isset($_GET['eventId'])) {
         <div class="container bg-white">
             <div class="row">
                 <div class="col-md-12 p-3 shadow-lg rounded">
-
                     <div class="border p-3 shadow-sm rounded">
+                        <a href="registrar_dashboard.php" class="btn btn-primary rounded btn-sm">
+                            BACK TO DASHBOARD
+                        </a>
                         <marquee class="pb-2" width="100%" direction="left">
                             <b class="marquee-text" style="letter-spacing: 5px;">Attendance Monitoring - QR Code</b>
                         </marquee>
