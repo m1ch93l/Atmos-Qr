@@ -47,10 +47,11 @@
     <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.jqueryui.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- Insert offline dependencies -->
+    <link rel="stylesheet" href="plugins/css/jquery-ui.css">
+    <link rel="stylesheet" href="plugins/css/dataTables.jqueryui.min.css">
+    <link rel="stylesheet" href="plugins/css/select.dataTables.min.css">
+    <link rel="stylesheet" href="plugins/css/buttons.dataTables.min.css">
 
     <style>
     body {
