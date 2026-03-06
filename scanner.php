@@ -43,15 +43,13 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Add the DataTables CDN -->
+    <!-- DataTables local styles -->
     <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- Insert offline dependencies -->
-    <link rel="stylesheet" href="plugins/css/jquery-ui.css">
-    <link rel="stylesheet" href="plugins/css/dataTables.jqueryui.min.css">
-    <link rel="stylesheet" href="plugins/css/select.dataTables.min.css">
-    <link rel="stylesheet" href="plugins/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="plugins/datatables-select/css/select.bootstrap4.min.css">
+    <!-- jQuery UI local styles -->
+    <link rel="stylesheet" href="plugins/jquery-ui/jquery-ui.min.css">
 
     <style>
     body {
@@ -206,12 +204,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.jqueryui.min.js"></script>
+    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.3.4/js/dataTables.select.min.js"></script>
-    <!-- Add the DataTables ColVis extension -->
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
+    <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-select/js/dataTables.select.min.js"></script>
+    <script src="plugins/datatables-select/js/select.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
     <script>
     $(document).ready(function() {
@@ -226,10 +226,12 @@
                     titleAttr: 'Column Visibility' // Tooltip for the button
                 },
                 {
+                    className: 'btn btn-sm btn-outline-primary',
                     text: '<i class="fas fa-trash-alt"></i>', // Icon for delete
                     titleAttr: 'Delete Selected', // Tooltip for the button
                     action: function() {
                         var selectedRows = table.rows({
+                            className: 'btn btn-sm btn-outline-danger',
                             selected: true
                         });
                         if (selectedRows.count() > 0) {
