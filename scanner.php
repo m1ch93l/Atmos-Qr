@@ -95,6 +95,12 @@
         right: 20px;
         z-index: 1000;
     }
+
+    /* Mirror the live camera preview for a selfie-style view. */
+    #reader video {
+        transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+    }
     </style>
 </head>
 
