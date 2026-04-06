@@ -29,7 +29,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
           <a href="admin_dashboard.php"
-            class="nav-link <?= $page == 'admin_dashboard.php' ? 'active text-white' : '' ?>">
+            class="nav-link <?php echo $page == 'admin_dashboard.php' ? 'active text-white' : '' ?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -37,7 +37,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="academic_year.php" class="nav-link <?= $page == 'academic_year.php' ? 'active text-white' : '' ?>">
+          <a href="academic_year.php" class="nav-link <?php echo $page == 'academic_year.php' ? 'active text-white' : '' ?>">
             <i class="nav-icon fas fa-calendar-alt"></i>
             <p>
               Academic Year
@@ -45,9 +45,9 @@
           </a>
         </li>
         <li
-          class="nav-item <?= ($page == 'faculty.php' || $page == 'senior_high.php' || $page == 'college.php' || $page == 'department.php' || $page == 'position.php') ? 'menu-open active' : '' ?>">
+          class="nav-item <?php echo ($page == 'faculty.php' || $page == 'senior_high.php' || $page == 'college.php' || $page == 'department.php' || $page == 'position.php') ? 'menu-open active' : '' ?>">
           <a href="#"
-            class="nav-link <?= ($page == 'faculty.php' || $page == 'senior_high.php' || $page == 'college.php' || $page == 'department.php' || $page == 'position.php') ? 'bg-primary' : '' ?>">
+            class="nav-link <?php echo ($page == 'faculty.php' || $page == 'senior_high.php' || $page == 'college.php' || $page == 'department.php' || $page == 'position.php') ? 'bg-primary' : '' ?>">
             <i class="nav-icon fas fa-users"></i>
             <p>
               Registrants
@@ -56,24 +56,24 @@
           </a>
           <ul class="nav nav-treeview">
             <!-- <li class="nav-item">
-            <a href="faculty.php" class="nav-link <?= $page == 'faculty.php' ? 'active' : '' ?>">
+            <a href="faculty.php" class="nav-link <?php echo $page == 'faculty.php' ? 'active' : '' ?>">
                 <i class="fas fa-chalkboard-teacher nav-icon"></i>
                 <p class="pl-4">Faculty</p>
             </a>
         </li> -->
             <!-- <li class="nav-item">
-            <a href="senior_high.php" class="nav-link <?= $page == 'senior_high.php' ? 'active' : '' ?>">
+            <a href="senior_high.php" class="nav-link <?php echo $page == 'senior_high.php' ? 'active' : '' ?>">
                 <i class="fas fa-user-graduate nav-icon"></i>
                 <p class="pl-4">Senior High</p>
             </a>
         </li> -->
             <li class="nav-item">
-              <a href="college.php" class="nav-link <?= $page == 'college.php' ? 'active' : '' ?>">
+              <a href="college.php" class="nav-link <?php echo $page == 'college.php' ? 'active' : '' ?>">
                 <i class="fas fa-user-graduate nav-icon"></i>
                 <p class="pl-4">College</p>
               </a>
             </li>
-            <!-- <li class="nav-item <?= ($page == 'department.php' || $page == 'position.php') ? 'menu-open' : '' ?>">
+            <!-- <li class="nav-item <?php echo ($page == 'department.php' || $page == 'position.php') ? 'menu-open' : '' ?>">
               <a href="#" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Faculty Roles
@@ -82,13 +82,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="department.php" class="nav-link <?= $page == 'department.php' ? 'active' : '' ?>">
+                  <a href="department.php" class="nav-link <?php echo $page == 'department.php' ? 'active' : '' ?>">
                     <i class="far fa-dot-circle nav-icon"></i>
                     <p class="pl-4">Department</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="position.php" class="nav-link <?= $page == 'position.php' ? 'active' : '' ?>">
+                  <a href="position.php" class="nav-link <?php echo $page == 'position.php' ? 'active' : '' ?>">
                     <i class="far fa-dot-circle nav-icon"></i>
                     <p class="pl-4">Position</p>
                   </a>
@@ -99,19 +99,45 @@
         </li>
 
         <li class="nav-item">
-          <a href="registrar.php" class="nav-link <?= $page == 'registrar.php' ? 'active text-white' : '' ?>">
+          <a href="registrar.php" class="nav-link <?php echo $page == 'registrar.php' ? 'active text-white' : '' ?>">
             <i class="fas fa-user-secret nav-icon"></i>
             <p>Registrars</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="event.php" class="nav-link <?= $page == 'event.php' ? 'active text-white' : '' ?>">
+          <a href="event.php" class="nav-link <?php echo $page == 'event.php' ? 'active text-white' : '' ?>">
             <i class="fas fa-th-list nav-icon"></i>
             <p>Events</p>
           </a>
         </li>
+
+        <li class="nav-item <?php echo ($page == 'attendance_dashboard.php' || $page == 'student_attendance_report.php') ? 'menu-open active' : '' ?>">
+          <a href="#"
+            class="nav-link <?php echo ($page == 'attendance_dashboard.php' || $page == 'student_attendance_report.php') ? 'bg-primary' : '' ?>">
+            <i class="nav-icon fas fa-clipboard-check"></i>
+            <p>
+              Attendance
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="attendance_dashboard.php" class="nav-link <?php echo $page == 'attendance_dashboard.php' ? 'active' : '' ?>">
+                <i class="fas fa-chart-line nav-icon"></i>
+                <p class="pl-4">Attendance Overview</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="student_attendance_report.php" class="nav-link <?php echo $page == 'student_attendance_report.php' ? 'active' : '' ?>">
+                <i class="fas fa-file-contract nav-icon"></i>
+                <p class="pl-4">Student Report</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
         <li class="nav-item">
-          <a href="report.php" class="nav-link <?= $page == 'report.php' ? 'active text-white' : '' ?>">
+          <a href="report.php" class="nav-link <?php echo $page == 'report.php' ? 'active text-white' : '' ?>">
             <i class="fas fa-chart-bar nav-icon"></i>
             <p>Reports</p>
           </a>
